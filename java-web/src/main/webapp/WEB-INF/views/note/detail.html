@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!--<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>-->
+<div th:replace="~{note/home :: head}"></div>
+
+<body>
+<!-- Header -->
+<div th:replace="~{layout :: nav}"></div>
+
+<!--Main Content-->
+<div class="container mainhome">
+    <div class>
+        <!-- Left -->
+        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 detail_page">
+            <form th:action="@{/home/__${note_detail.ID}__}" th:method="post" th:object="${note_detail}">
+                <legend><h3>Chi tiết ghi chú</h3></legend>
+                <div class="form-group">
+                    <label>Tiêu đề</label>
+                    <input type="text" class="form-control"  placeholder="..." required="required" th:value="${note_detail.title}" disabled/>
+                </div>
+                <div class="form-group">
+                    <label>Thời gian</label>
+                    <input type="text" class="form-control input_min" placeholder="..." required="required" th:value="${note_detail.time}" disabled/>
+                </div>
+                <div class="form-group">
+                    <label>Danh mục</label>
+                    <input type="text" class="form-control input_min" placeholder="..." required="required" th:value="${note_detail.type.name}" disabled/>
+                </div>
+                <div class="form-group">
+                    <label>Nội dung</label>
+                    <textarea name="" id="input" class="form-control" rows="5" required="required" th:text="${note_detail.content}" disabled></textarea>
+                </div>
+
+                <div class="row">
+                    <button type="submit" id="edit" name="action" value="edit" class="btn btn-primary">Sửa</button>
+                    <span>
+                        <button type="submit" id="delete" name="action" value="delete" class="btn btn-danger">Xóa</button>
+                    </span>
+                </div>
+
+
+            </form>
+        </div>
+        <!-- Right -->
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+            <div class="col-md-12 right_col">
+                <h3>Ghi Chú Của Bạn</h3> (* Chỉ bạn nhìn thấy)
+                <div class="col_right_all" th:each="note_item : ${notes}">
+                    <a th:href="@{/home/{id} (id=__${note_item.getID()}__)}" title="">
+                        <div class="img">
+                            <strong class="glyphicon glyphicon-check" style="font-size: 36px;"></strong> &nbsp;
+                        </div>
+                        <div class="title">
+                            <p><strong th:text="${note_item.getTitle()}"></strong><br>
+                                <span class="fixtime glyphicon glyphicon-time"><i th:text="${note_item.getTime()}"></i></span>
+                            </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="clearfix"></div>
+                <br>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<div th:replace="~{layout :: footer}"></div>
+</body>
+</html>

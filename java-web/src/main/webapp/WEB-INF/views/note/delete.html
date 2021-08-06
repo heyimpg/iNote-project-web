@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:replace="~{note/home :: head}"></div>
+<body>
+<!-- Header -->
+<div th:replace="~{layout :: nav}"></div>
+
+<!--Main Content-->
+<div class="container mainhome">
+    <div class>
+        <!-- Left -->
+        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+            <form th:action="@{/delete-note/__${note_delete.ID}__}" method="POST" role="form">
+                <legend><h3>Xóa ghi chú</h3></legend>
+                <i><h4 th:text="${note_delete.title}"></h4></i>
+                <br>
+                <div class="field-input">
+                    <div>
+                        <h4 style="text-align: inherit;"> Bạn có chắc muốn xóa ghi chú này?</h4>
+                    </div>
+                    <center>
+                        <div>
+                            <button type="submit" id="confirm_delete" name="action" value="confirm" class="btn btn-danger">Xóa</button>
+                            <button type="submit" id="cancel_delete" name="action" value="close" class="btn btn-default">Thoát</button>
+                        </div>
+                    </center>
+                </div>
+            </form>
+        </div>
+        <!-- Right -->
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+            <div class="col-md-12 right_col">
+                <h3>Ghi Chú Của Bạn</h3> (* Chỉ bạn nhìn thấy)
+                <div class="col_right_all" th:each="note_item : ${notes}">
+                    <a th:href="@{/home/{id} (id=__${note_item.getID()}__)}" title="">
+                        <div class="img">
+                            <strong class="glyphicon glyphicon-check" style="font-size: 36px;"></strong> &nbsp;
+                        </div>
+                        <div class="title">
+                            <p><strong th:text="${note_item.getTitle()}"></strong><br>
+                                <span class="fixtime glyphicon glyphicon-time"><i th:text="${note_item.getTime()}"></i></span>
+                            </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="clearfix"></div>
+                <br>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<div th:replace="~{layout :: footer}"></div>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- BootStrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+	<!-- Css -->
+	<link rel="stylesheet" href="../asset/css/homeStyle.css">
+
+	<title>iNote Online</title>
+
+</head>
+<body>
+
+<!-- Header -->
+<nav class="navbar navbar-default navbar-fixed-top">
+	<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a href="home.html" title="Online Notepad"><img src="asset/img/logo.png" alt="Online Notepad"></a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+
+					<li><a href="manage-note.html" title="Xem sửa xóa toàn bộ ghi chú của bạn">Quản Lý Ghi Chú</a></li>
+					<li><a href="#" title="Đổi mật khẩu đăng nhập của bạn">Đăng nhập</a></li>
+				</ul>
+			</div>
+	</div>
+</nav>
+
+<!-- Main -->
+<div class="container mainhome">
+	<div class>
+		<!-- Left -->
+		<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+			<form action="" method="POST" role="form">
+				<legend><h3>Thêm ghi chú mới</h3></legend>
+
+				<div class="form-group">
+					<label for="">Tiêu đề</label>
+					<input type="text" class="form-control" id="" placeholder="...">
+				</div>
+
+				<div class="form-group">
+					<label for="">Thời gian</label>
+					<input type="date" id="time" class="form-control input_min" placeholder="...">
+				</div>
+				<div class="form-group">
+					<label for="">Danh mục</label>
+					<select name=""  class="form-control input_min" required="required" style="width: 40%;">
+						<option value="">Việc nhà</option>
+						<option value="">Khác</option>
+					</select>
+					<!-- <input type="text" class="form-control" id="input_min" placeholder="..."> -->
+				</div>
+				
+				<div class="form-group">
+					<label for="">Nội dung</label>
+					<textarea name="" id="input" class="form-control" rows="5" required="required"></textarea>
+					<!-- <textarea  id="content"></textarea> -->
+				</div>
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</form>
+		</div>
+		<!-- Right -->
+		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+			<div class="col-md-12 right_col">
+				<h3>Ghi Chú Của Bạn</h3> (* Chỉ bạn nhìn thấy)
+				<div class="col_right_all">
+					<a href="https://www.inote.pro/notes/edit/G0J3ZE" title="">
+						<div class="img">
+							<strong class="glyphicon glyphicon-check" style="font-size: 36px;"></strong> &nbsp;
+						</div>
+						<div class="title">
+							<p><strong>Việc cần làm 1</strong><br>
+								<span class="fixtime glyphicon glyphicon-time"><i>2021-08-03 04:09:15</i></span>
+							</p>
+						</div>
+					</a>
+				</div>
+				<div class="clearfix"></div>
+				<br>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+</div>
+
+<!-- Footer -->
+<footer>
+	<div class="col-md-12">
+		<div style="text-align: center; padding-bottom: 12px;">
+			<p class="stats">
+			</p>
+			<p style="color: #fff;">Tham khảo: INote.Pro</p>
+		</div>
+		<p>
+			<a href="/">Trang Chủ</a>
+			|<a href="/tinh-nang/" title="Tính năng">Tính Năng</a>
+
+			| <a href="/dieu-khoan-su-dung/" title="Điều khoản sử dụng">Điều Khoản Sử Dụng</a>
+			| <a href="/chinh-sach-bao-mat/" title="Chính sách bảo mật">Chính Sách Bảo Mật</a>
+		</p></div>
+	<div class="clearfix"></div>
+</footer>
+	
+</body>
+</html>

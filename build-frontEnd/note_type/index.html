@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- BootStrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+	<!-- Css -->
+	<link rel="stylesheet" href="../asset/css/manageStyle.css">
+
+	<title>iNote Online</title>
+</head>
+<body>
+
+<!-- Header -->
+<nav class="navbar navbar-default navbar-fixed-top">
+	<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a href="home.html" title="Online Notepad"><img src="../asset/img/logo.png" alt="Online Notepad"></a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+
+					<li><a href="#" title="Xem sửa xóa toàn bộ ghi chú của bạn">Quản Lý Ghi Chú</a></li>
+					<li><a href="#" title="Đổi mật khẩu đăng nhập của bạn">Đăng nhập</a></li>
+				</ul>
+			</div>
+	</div>
+</nav>
+
+<!-- Main -->
+<div class="container mainhome">
+	<div class="panel-body">
+		<!-- Left -->
+		<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+			<div>
+				<legend>
+					<h3>
+						Quản lý danh mục
+					</h3> 
+				</legend>
+			</div>
+			<div class="row">
+				<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 left">
+					<button type="button" class="btn btn-default">Thêm mới</button>
+				</div>
+				<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 right">
+						<form action="" method="POST" role="form">
+							<input id="inputSearch"  type="text" class="form-control" id="inputSearch" placeholder="Nhập tên thành phố...">
+							<button  type="submit" class="btn btn-primary">Tìm kiếm</button> 
+						</form>
+				</div>
+			</div>
+			
+			<table class="table table-hover table-striped">
+				<thead>
+					<tr>
+						<th>Tên danh mục</th>
+						<th>Miêu tả</th>
+						<th>Sửa</th>
+						<th>Xóa</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><a href="#">Việc nhà</a></td>
+						<td>Việc nhà là việc của đàn bà</td>
+						<td><a href="#"><div class="glyphicon glyphicon-pencil"></div></a></td>
+						<td><a href="#"><div class="glyphicon glyphicon-remove"></div></a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<!-- Right -->
+		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+			<div class="col-md-12 right_col">
+				<h3>Danh mục</h3>
+				<div>
+					<a href="#"><h4>Tùy chỉnh danh mục <span class="glyphicon glyphicon-cog"></span></h4></a>
+				</div>
+				<br>
+				<div class="col_right_all">
+						<div class="title">
+							<a href="#"><h4>Việc nhà</h4></a>
+							<a href="#"><h4>Việc cơ quan</h4></a>
+							<a href="#"><h4>Việc cá nhân</h4></a>
+							<a href="#"><h4>Khác</h4></a>
+						</div>
+				</div>
+				<div class="clearfix"></div>
+				<br>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+</div>
+
+<!-- Footer -->
+<footer>
+	<div class="col-md-12">
+		<div style="text-align: center; padding-bottom: 12px;">
+			<p class="stats">
+			</p>
+			<p style="color: #fff;">Tham khảo: INote.Pro</p>
+		</div>
+		<p>
+			<a href="/">Trang Chủ</a>
+			|<a href="/tinh-nang/" title="Tính năng">Tính Năng</a>
+
+			| <a href="/dieu-khoan-su-dung/" title="Điều khoản sử dụng">Điều Khoản Sử Dụng</a>
+			| <a href="/chinh-sach-bao-mat/" title="Chính sách bảo mật">Chính Sách Bảo Mật</a>
+		</p></div>
+		<div class="clearfix"></div>
+	</footer>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:fragment="logo-web" rel="shortcut icon" href="/Asset/img/logo_mini.ico" type="image/x-icon" />
+</head>
+<body>
+<!-- Header -->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/home" title="Online Notepad"><img src="/Asset/img/logo.png" alt="Online Notepad"></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+
+                <li><a href="/manage-note" title="Xem sửa xóa toàn bộ ghi chú của bạn">Quản Lý Ghi Chú</a></li>
+                <li><a href="#" title="Đổi mật khẩu đăng nhập của bạn">Đăng nhập</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!--Main Content-->
+
+<!-- Footer -->
+<footer>
+    <div class="col-md-12">
+        <div style="text-align: center; padding-bottom: 12px;">
+            <p class="stats">
+            </p>
+            <a href="https://www.inote.pro/"><p style="color: #fff;">Tham khảo FE: INote.Pro</p></a>
+        </div>
+        <p>
+            <a href="#">Trang Chủ</a>
+            |<a href="#" title="Tính năng">Tính Năng</a>
+
+            | <a href="#" title="Điều khoản sử dụng">Điều Khoản Sử Dụng</a>
+            | <a href="#" title="Chính sách bảo mật">Chính Sách Bảo Mật</a>
+        </p></div>
+    <div class="clearfix"></div>
+</footer>
+</body>
+</html>

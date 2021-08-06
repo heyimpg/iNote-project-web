@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+
+  <!-- BootStrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+  <!-- Css -->
+  <link rel="stylesheet" href="/Asset/css/manageStyle.css">
+  <!--    Script-->
+  <script src="/Asset/script/homeJS.js"></script>
+
+  <title>iNote Online - NoteType</title>
+  <link th:replace="layout :: logo-web" rel="stylesheet" href="">
+</head>
+<body>
+<!-- Header -->
+<div th:replace="~{layout :: nav}"></div>
+
+<!-- Main -->
+<div class="container mainhome">
+  <div class="panel-body">
+    <!-- Left -->
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+
+      <div class="alert alert-success" th:if="${message != null}">
+        <strong th:text="${message}"></strong> </a>.
+      </div>
+
+      <form th:action="@{/edit-type-accept}" th:method="post" th:object="${note_type_edit}">
+        <legend><h3>Chỉnh sửa danh mục</h3></legend>
+        <input type="hidden" class="form-control"  placeholder="..." required="required" th:field="*{ID}" th:value="${note_type_edit.ID}"/>
+        <div class="form-group">
+          <label>Tên danh mục</label>
+          <input style="width: 40%" type="text" class="form-control" placeholder="..." required="required" th:field="*{name}" th:value="${note_type_edit.name}"/>
+          <i><h5 class="error_message" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></h5></i>
+        </div>
+        <div class="form-group">
+          <label>Miêu tả</label>
+          <textarea style="width: 40%;" name="" id="input" class="form-control" rows="5" th:field="*{description}" th:text="${note_type_edit.description}"></textarea>
+          <i><h5 class="error_message" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></h5></i>
+        </div>
+        <button type="submit" class="btn btn-primary">Lưu lại</button>
+      </form>
+    </div>
+    <!-- Right -->
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+      <div class="col-md-12 right_col">
+        <h3>Danh mục</h3>
+        <div>
+          <a href="/note-types"><h4><u>Tùy chỉnh danh mục</u> <span class="glyphicon glyphicon-cog"></span></h4></a>
+        </div>
+        <br>
+        <div class="col_right_all">
+          <div class="title" th:each="type_item : ${note_types}">
+            <a th:href="@{/notes-by-type/__${type_item.ID}__}"><h4 th:text="${type_item.name}"></h4></a>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+        <br>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<div th:replace="~{layout :: footer}"></div>
+</body>
+</html>

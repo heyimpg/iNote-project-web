@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+
+    <!-- BootStrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+    <!-- Css -->
+    <link rel="stylesheet" href="/Asset/css/manageStyle.css">
+    <!--    Script-->
+    <script src="/Asset/script/homeJS.js"></script>
+
+    <title>iNote Online - Manage</title>
+    <link th:replace="layout :: logo-web" rel="stylesheet" href="">
+</head>
+<body>
+<!-- Header -->
+<div th:replace="~{layout :: nav}"></div>
+
+<!-- Main -->
+<div class="container mainhome">
+    <div class="panel-body">
+        <!-- Left -->
+        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+
+            <div class="alert alert-danger" th:if="${message != null}">
+                <strong th:text="${message}"></strong> </a>
+            </div>
+
+            <div>
+                <legend>
+                    <h3>
+                        Quản lý ghi chú
+                        <!-- <span class="glyphicon glyphicon-chevron-right"></span>
+                         <span><a href="">Toàn bộ</a></span> -->
+                    </h3>
+                </legend>
+                <i><h4 th:if="${note_type != null}" th:text="${note_type.name}"></h4></i>
+            </div>
+            <div class="row">
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 left">
+                    <a href="/home"><button type="button" class="btn btn-default">Thêm mới</button></a>
+                </div>
+                <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 right">
+                    <form method="GET" role="form">
+                        <input id="inputSearch" name="searchView" type="text" class="form-control" placeholder="Nhập tên ghi chú...">
+                        <button  type="submit" class="btn btn-primary">Tìm kiếm</button>
+                    </form>
+                </div>
+            </div>
+
+
+            <table class="table table-hover table-striped">
+                <thead>
+                <tr>
+                    <th>Tiêu đề</th>
+                    <th>Danh mục</th>
+                    <th>Thời gian</th>
+                    <th>Sửa</th>
+                    <th>Xóa</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="item_note : ${notes}">
+                    <td><a th:href="@{/home/__${item_note.ID}__}" th:text="${item_note.title}"></a></td>
+                    <td th:text="${item_note.type.name}"></td>
+                    <td th:text="${item_note.time}"></td>
+                    <td><a th:href="@{/edit-note/{id} (id=__${item_note.ID}__)}"><div class="glyphicon glyphicon-pencil"></div></a></td>
+                    <td><a th:href="@{/delete-note/{id} (id=__${item_note.ID}__)}"><div class="glyphicon glyphicon-remove"></div></a></td>
+                </tr>
+                </tbody>
+            </table>
+            <!--Paging-->
+            <div>
+                <a th:href="@{'/manage-note'(searchView=${searchResult}, page=${notes.number - 1})}" th:if="${notes.hasPrevious()}">Trang trước</a>
+                <span th:text="${notes.number + 1}"></span>/<span th:text="${notes.totalPages}"></span>
+                <a th:href="@{'/manage-note'(searchView=${searchResult}, page=${notes.number + 1})}" th:if="${notes.hasNext()}">Trang tiếp</a>
+            </div>
+        </div>
+        <!-- Right -->
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+            <div class="col-md-12 right_col">
+                <h3>Danh mục</h3>
+                <div>
+                    <a href="/note-types"><h4><u>Tùy chỉnh danh mục</u> <span class="glyphicon glyphicon-cog"></span></h4></a>
+                </div>
+                <br>
+                <div class="col_right_all">
+                    <div class="title" th:each="type_item : ${note_types}" >
+                        <a th:href="@{/notes-by-type/__${type_item.ID}__}"><h4 th:text="${type_item.name}"></h4></a>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <br>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<div th:replace="~{layout :: footer}"></div>
+</body>
+</html>
