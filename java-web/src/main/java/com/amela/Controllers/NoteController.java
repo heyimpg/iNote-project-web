@@ -43,24 +43,23 @@ public class NoteController {
 
 //List
     @GetMapping("/home")
-    public String index(@Valid @ModelAttribute("note") Note note, BindingResult bindingResult)
+    public String index()
     {
         return "note/home";
     }
 //Create
     @PostMapping("/home")
-    public ModelAndView create(@Valid @ModelAttribute("note") Note note, BindingResult bindingResult, RedirectAttributes redirectAttributes)
+    public String create(@Valid @ModelAttribute("note") Note note, BindingResult bindingResult, RedirectAttributes redirectAttributes)
     {
         ModelAndView modelAndView = new ModelAndView();
         if (bindingResult.hasFieldErrors())
-            redirectAttributes.addFlashAttribute("note", note);
+            return "note/home";
         else
         {
             noteService.save(note);
             redirectAttributes.addFlashAttribute("message", "Đã thêm mới 1 ghi chú thành công!");
+            return "redirect:/home";
         }
-        modelAndView.setViewName("redirect:/home");
-        return modelAndView;
     }
 //Detail
     @GetMapping("/home/{id}")

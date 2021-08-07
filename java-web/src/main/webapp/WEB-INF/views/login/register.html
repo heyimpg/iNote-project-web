@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+
+    <!-- BootStrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+    <!-- Css -->
+    <link rel="stylesheet" href="/Asset/css/homeStyle.css">
+    <!--    Script-->
+    <script src="/Asset/script/loginJS.js"></script>
+
+    <title>iNote Online - Register</title>
+    <link th:replace="layout :: logo-web" rel="stylesheet" href="">
+
+</head>
+<body>
+
+<!-- Header -->
+<div th:replace="~{layout :: nav}"></div>
+
+<!-- Main -->
+<div class="container mainhome">
+    <div class>
+        <!-- Left -->
+        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+            <div class="row">
+                <div class="col-md-12">
+                    <form method="post" th:action="@{/register}" role="form" class="form-horizontal" th:object="${login}">
+                        <input type="hidden" th:field="*{ID}">
+                        <h1>Đăng Ký Tài Khoản</h1>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Tên của bạn</label>
+                            <div class="col-sm-5">
+                                <input type="text" class="form-control"  placeholder="VD: abc" th:field="*{name}" required/>
+                                <i><h5 class="error_message" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></h5></i>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Email</label>
+                            <div class="col-sm-5">
+                                <input type="email" class="form-control"  placeholder="Nhập email" th:field="*{email}" required/>
+                                <i><h5 class="error_message" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></h5></i>
+                            </div>
+                            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                                <i><h5>(*Sử dụng để đăng nhập)</h5></i>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Password</label>
+                            <div class="col-sm-5">
+                                <input type="password" id="password" class="form-control"  placeholder="Nhập Password" th:field="*{password}" required/>
+                                <i><h5 class="error_message" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></h5></i>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Confirm Password</label>
+                            <div class="col-sm-5">
+                                <input type="password" name="password_confirm" id="password_confirm" class="form-control" onkeyup="myfun()"  placeholder="Nhập Password"/>
+                            </div>
+                            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                                <i><h5 id="message_check" th:text="${invalid_password}" class="error_message"></h5></i>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-5">
+                                <input type="submit" name="create" id="submit" class="btn btn-primary" value="Tạo Tài Khoản">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- Right -->
+
+    </div>
+</div>
+
+<!-- Footer -->
+<div th:replace="~{layout :: footer}"></div>
+
+</body>
+</html>

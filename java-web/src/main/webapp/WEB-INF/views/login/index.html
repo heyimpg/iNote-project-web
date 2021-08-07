@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+
+  <!-- BootStrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+  <!-- Css -->
+  <link rel="stylesheet" href="/Asset/css/homeStyle.css">
+  <!--    Script-->
+  <script src="/Asset/script/homeJS.js"></script>
+
+  <title>iNote Online - Login</title>
+  <link th:replace="layout :: logo-web" rel="stylesheet" href="">
+
+</head>
+<body>
+
+<!-- Header -->
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="/home" title="Online Notepad"><img src="/Asset/img/logo.png" alt="Online Notepad"></a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
+
+        <li><a th:href="@{/manage-note}" title="Quản lý ghi chú của bạn">Quản Lý Ghi Chú</a></li>
+        <li><a th:href="@{/register}" title="Đăng ký tài khoản mới">Đăng ký</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Main -->
+<div class="container mainhome">
+  <div class>
+    <!-- Left -->
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+
+      <div class="alert alert-success" th:if="${message != null}">
+        <strong th:text="${message}"></strong> </a>.
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <form th:action="@{/login}" class="form-horizontal" role="form" th:object="${login}" method="post">
+            <input type="hidden" th:field="*{ID}">
+            <h1>Đăng Nhập </h1>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Email</label>
+              <div class="col-sm-5">
+                <input type="email" class="form-control"  placeholder="Nhập email" th:field="*{email}" required/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="password" class="col-sm-2 control-label">Password</label>
+              <div class="col-sm-5">
+                <input type="password" id="password" class="form-control"  placeholder="Nhập Password" th:field="*{password}" required/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label"></label>
+              <div class="col-sm-5">
+                <i><h5 th:if="${invalid_account!=null}" th:text="${invalid_account}" class="error_message"></h5></i>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="password" class="col-sm-2 control-label"></label>
+              <div class="col-sm-5">
+                <input type="checkbox" name="remember"> Nhớ đăng nhập
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-5">
+                <input type="submit" name="login" id="submit" class="btn btn-primary" value="Đăng Nhập"> &nbsp;
+                <a href="https://www.inote.pro/password/reset">Quên mật khẩu?</a>
+              </div>
+            </div>
+            <br>
+          </form>
+          <div>
+            <i><h5>Hoặc <b><a th:href="@{/register}">Đăng ký ngay</a></b> nếu chưa có tài khoản</h5></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Right -->
+
+  </div>
+</div>
+
+<!-- Footer -->
+<div th:replace="~{layout :: footer}"></div>
+
+</body>
+</html>

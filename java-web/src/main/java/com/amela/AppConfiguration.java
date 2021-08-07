@@ -1,15 +1,10 @@
 package com.amela;
 
+import com.amela.Formatter.DateFormatter;
 import com.amela.Formatter.NoteTypeFormatter;
 import com.amela.Models.Note;
-import com.amela.Repository.INoteRepository;
-import com.amela.Repository.INoteTypeRepository;
-import com.amela.Repository.NoteRepository;
-import com.amela.Repository.NoteTypeRepository;
-import com.amela.Service.INoteService;
-import com.amela.Service.INoteTypeService;
-import com.amela.Service.NoteService;
-import com.amela.Service.NoteTypeService;
+import com.amela.Repository.*;
+import com.amela.Service.*;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
@@ -64,6 +59,9 @@ public class AppConfiguration implements WebMvcConfigurer, ApplicationContextAwa
     @Override
     public void addFormatters(FormatterRegistry registry) {
         registry.addFormatter(new NoteTypeFormatter(applicationContext.getBean(NoteTypeService.class)));
+
+        String regex = "yyyy-MM-dd";
+        registry.addFormatter(new DateFormatter(regex));
     }
 
     //Dependency Injection
@@ -72,16 +70,24 @@ public class AppConfiguration implements WebMvcConfigurer, ApplicationContextAwa
         return new NoteRepository();
     }
     @Bean
-    public INoteTypeRepository noteTypeRepository(){
-        return new NoteTypeRepository();
-    }
-    @Bean
     public INoteService noteService(){
         return new NoteService();
     }
     @Bean
+    public INoteTypeRepository noteTypeRepository(){
+        return new NoteTypeRepository();
+    }
+    @Bean
     public INoteTypeService noteTypeService(){
         return new NoteTypeService();
+    }
+    @Bean
+    public ILoginRepository loginRepository(){
+        return new LoginRepository();
+    }
+    @Bean
+    public ILoginService loginService(){
+        return new LoginService();
     }
 
     //Cấu hình Thymeleaf

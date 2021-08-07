@@ -1,6 +1,6 @@
 $(document).ready(function ()
     {
-        $(".alert-success").hide(5000);
-        $(".alert-danger").hide(5000);
+        $(".alert-success").hide(3000);
+        $(".alert-danger").hide(3000);
     }
 )

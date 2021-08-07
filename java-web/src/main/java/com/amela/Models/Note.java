@@ -5,6 +5,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "note")
@@ -17,9 +18,9 @@ public class Note {
     @Size(min = 1, max = 50, message = "Tiêu đề không được để trống và tối đa 50 ký tự")
     private String title;
 
-    @Size(min=1, message = "Không được để trống trường này")
-    @Pattern(regexp = "([12]\\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01]))", message = "Bạn phải nhập đúng định dạng YYYY-MM-DD")
-    private String time;
+//    @Size(min=1, message = "Không được để trống trường này")
+//    @Pattern(regexp = "([12]\\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01]))", message = "Bạn phải nhập đúng định dạng YYYY-MM-DD")
+    private LocalDate time;
 
     private String content;
 
@@ -30,9 +31,15 @@ public class Note {
     public Note() {
     }
 
-    public Note(String time, String title, String content) {
+    /*public Note(String time, String title, String content) {
         this.time = time;
         this.title = title;
+        this.content = content;
+    }*/
+
+    public Note(String title, LocalDate time, String content) {
+        this.title = title;
+        this.time = time;
         this.content = content;
     }
 
@@ -44,11 +51,19 @@ public class Note {
         this.ID = ID;
     }
 
-    public String getTime() {
+  /*  public String getTime() {
         return time;
     }
 
     public void setTime(String time) {
+        this.time = time;
+    }*/
+
+    public LocalDate getTime() {
+        return time;
+    }
+
+    public void setTime(LocalDate time) {
         this.time = time;
     }
 
