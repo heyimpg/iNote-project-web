@@ -37,6 +37,13 @@ public class Note {
         this.content = content;
     }
 
+    public Note(int ID, String title, LocalDate time, String content) {
+        this.ID = ID;
+        this.title = title;
+        this.time = time;
+        this.content = content;
+    }
+
     public int getID() {
         return ID;
     }

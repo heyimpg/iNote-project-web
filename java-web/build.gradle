@@ -6,15 +6,23 @@ plugins {
 group 'org.example'
 version '1.0-SNAPSHOT'
 
+sourceCompatibility = 1.8
+
 repositories {
     mavenCentral()
-    mavenCentral()
+    maven { url 'https://jitpack.io' }
 }
 
 dependencies {
-    testImplementation 'junit:junit:4.11'
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    //Test case
+    implementation group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.7.0'
+    implementation group: 'org.junit.platform', name: 'junit-platform-commons', version: '1.7.0'
+    implementation group: 'org.junit.platform', name: 'junit-platform-launcher', version: '1.7.0'
+
+    implementation group: 'org.springframework', name: 'spring-test', version: '5.3.2'
+    implementation group: 'com.github.sbrannen', name: 'spring-test-junit5', version: '1.2.0'
+    implementation group: 'org.mockito', name: 'mockito-all', version: '1.10.19'
+    implementation group: 'com.h2database', name: 'h2', version: '1.4.197'
     //Servlet
     providedCompile group: 'javax.servlet', name: 'javax.servlet-api', version: '4.0.1'
     //Spring MVC
@@ -41,4 +49,14 @@ dependencies {
 
 test {
     useJUnitPlatform()
+
+    testLogging {
+        events "PASSED", "STARTED", "FAILED", "SKIPPED", "STANDARD_OUT", "STANDARD_ERROR"
+    }
+    afterTest { desc, result ->
+        println "Testing ${desc.name} [${desc.className}]: ${result.resultType}"
+    }
+    reports {
+        html.enabled = true
+    }
 }
