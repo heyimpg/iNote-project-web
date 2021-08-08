@@ -15,19 +15,19 @@ public class Login {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int ID;
 
-    @NotEmpty(message = "Không được để trống trường này")
-    @Email(message = "Bạn phải nhập đúng định dạng email VD: abc@gmail.com")
-    @Size(max = 30, message = "Độ dài tối đa là 30 ký tự")
+    @NotEmpty(message = "Khong duoc de trong truong nay")
+    @Email(message = "Ban phai nhap dung dinh dang email VD: abc@gmail.com")
+    @Size(max = 30, message = "Do dai toi da la 30 ky tu")
     @Column(unique = true)
-    @UniqueAccount(message = "Tài khoản đã tồn tại!")
+    @UniqueAccount(message = "Tai khoan da ton tai!")
     private String email;
 
-    @Size(min = 6, max = 20, message = "Mật khẩu phải từ 6-20 ký tự")
+    @Size(min = 6, max = 20, message = "Mat khau tu 6-20 ky tu")
     private String password;
 
-    @NotEmpty(message = "Không được để trống trường này")
-    @Pattern(regexp = "[a-zA-Z]+", message = "Bạn chỉ được nhập chữ")
-    @Size(min = 1, max = 10, message = "Tên cho phép chứa tối đa 10 ký tự")
+    @NotEmpty(message = "Khong duoc de trong truong nay")
+//    @Pattern(regexp = "([a-zA-Z\\s])+", message = "Bạn chỉ được nhập chữ")
+    @Size(min = 1, max = 10, message = "Ten cho phep chua toi da 10 ky tu")
     private String name;
 
     public Login() {

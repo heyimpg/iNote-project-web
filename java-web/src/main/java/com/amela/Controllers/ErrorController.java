@@ -9,6 +9,11 @@ public class ErrorController {
     @GetMapping("/update-err")
     public String updateErr()
     {
-        return "update_error";
+        return "exception_handle/update_error";
+    }
+    @GetMapping("/not-found-session")
+    public String notFoundSession()
+    {
+        return "exception_handle/notFoundSession_error";
     }
 }

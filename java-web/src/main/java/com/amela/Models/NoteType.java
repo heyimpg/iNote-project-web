@@ -15,10 +15,10 @@ public class NoteType {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int ID;
 
-    @Size(min = 1, max = 50, message = "Danh mục không được để trống và tối đa 50 ký tự")
+    @Size(min = 1, max = 50, message = "Danh muc khong duoc de trong va chua toi da 50 ky tu")
     private String name;
 
-    @Size(max = 50, message = "Trường này cho phép tối đa 50 ký tự")
+    @Size(max = 50, message = "Chi cho phep nhap toi da 50 ky tu")
     private String description;
 
     @OneToMany(targetEntity = Note.class)

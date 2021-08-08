@@ -57,7 +57,7 @@ public class NoteController {
         else
         {
             noteService.save(note);
-            redirectAttributes.addFlashAttribute("message", "Đã thêm mới 1 ghi chú thành công!");
+            redirectAttributes.addFlashAttribute("message", "Da them moi 1 ghi chu thanh cong!");
             return "redirect:/home";
         }
     }
@@ -98,7 +98,7 @@ public class NoteController {
            else
            {
                noteService.save(note);
-               redirectAttributes.addFlashAttribute("message", "Lưu thành công!");
+               redirectAttributes.addFlashAttribute("message", "Luu lai thanh cong!");
                return "redirect:/edit-note/"+note.getID();
            }
 
@@ -121,8 +121,9 @@ public class NoteController {
     {
         if (action.equals("confirm"))
         {
-            redirectAttributes.addFlashAttribute("message", "Đã xóa 1 bản ghi chú!");
+            redirectAttributes.addFlashAttribute("message", "Da xoa 1 ban ghi chu!");
             noteService.delete(ID);
+//            return "redirect:/home";
             return "redirect:/manage-note";
         }
         else

@@ -1,5 +1,6 @@
 package com.amela.Controllers;
 
+import com.amela.Models.Login;
 import com.amela.Models.Note;
 import com.amela.Models.NoteType;
 import com.amela.Service.INoteService;
@@ -38,7 +39,9 @@ public class NoteTypeController {
 
 //List
     @GetMapping("/note-types")
-    public ModelAndView index(@RequestParam("searchView") Optional<String> search, @PageableDefault(value = 5) Pageable pageable)
+    public ModelAndView index(@RequestParam("searchView") Optional<String> search,
+                              @PageableDefault(value = 5) Pageable pageable,
+                              @SessionAttribute("login") Login login) throws Exception
     {
         ModelAndView modelAndView = new ModelAndView("note_type/index");
         if (search.isPresent())
@@ -59,7 +62,8 @@ public class NoteTypeController {
         return "note_type/create";
     }
     @PostMapping("/create-type-accept")
-    public String createAccept(@Valid @ModelAttribute("note_type") NoteType noteType, BindingResult bindingResult, RedirectAttributes redirectAttributes)
+    public String createAccept(@Valid @ModelAttribute("note_type") NoteType noteType, BindingResult bindingResult,
+                               RedirectAttributes redirectAttributes)
     {
         if (bindingResult.hasFieldErrors())
         {
@@ -68,7 +72,7 @@ public class NoteTypeController {
         else
         {
 //            noteTypeService.save(noteType);
-            redirectAttributes.addFlashAttribute("message", "Đã thêm mới 1 danh mục thành công!");
+            redirectAttributes.addFlashAttribute("message", "Da them moi 1 danh muc thanh cong!");
             return "redirect:/create-type";
         }
 
@@ -91,7 +95,7 @@ public class NoteTypeController {
             else
             {
                 noteTypeService.save(noteType);
-                redirectAttributes.addFlashAttribute("message", "Lưu thành công!");
+                redirectAttributes.addFlashAttribute("message", "Luu thanh cong!");
                 return "redirect:/edit-type/"+noteType.getID();
             }
     }

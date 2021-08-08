@@ -15,7 +15,7 @@ public class Note {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int ID;
 
-    @Size(min = 1, max = 50, message = "Tiêu đề không được để trống và tối đa 50 ký tự")
+    @Size(min = 1, max = 50, message = "Tieu de khong duoc de trong va chi chua toi da 50 ky tu")
     private String title;
 
 //    @Size(min=1, message = "Không được để trống trường này")
@@ -31,12 +31,6 @@ public class Note {
     public Note() {
     }
 
-    /*public Note(String time, String title, String content) {
-        this.time = time;
-        this.title = title;
-        this.content = content;
-    }*/
-
     public Note(String title, LocalDate time, String content) {
         this.title = title;
         this.time = time;
@@ -50,14 +44,6 @@ public class Note {
     public void setID(int ID) {
         this.ID = ID;
     }
-
-  /*  public String getTime() {
-        return time;
-    }
-
-    public void setTime(String time) {
-        this.time = time;
-    }*/
 
     public LocalDate getTime() {
         return time;

@@ -2,6 +2,7 @@ package com.amela;
 
 import com.amela.Formatter.DateFormatter;
 import com.amela.Formatter.NoteTypeFormatter;
+import com.amela.Handle.CustomException;
 import com.amela.Models.Note;
 import com.amela.Repository.*;
 import com.amela.Service.*;
@@ -53,6 +54,13 @@ public class AppConfiguration implements WebMvcConfigurer, ApplicationContextAwa
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/Asset/**")
                 .addResourceLocations("Asset/");
+    }
+
+    //Handle Exception
+    @Bean
+    public CustomException customException()
+    {
+        return new CustomException();
     }
 
     //Formatter

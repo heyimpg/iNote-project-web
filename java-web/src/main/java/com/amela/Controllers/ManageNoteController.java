@@ -1,9 +1,11 @@
 package com.amela.Controllers;
 
+import com.amela.Models.Login;
 import com.amela.Models.Note;
 import com.amela.Models.NoteType;
 import com.amela.Service.INoteService;
 import com.amela.Service.INoteTypeService;
+import org.hibernate.SessionException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -11,10 +13,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.HttpSessionRequiredException;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
@@ -43,7 +43,9 @@ public class ManageNoteController {
 
 //List
     @GetMapping("/manage-note")
-    public ModelAndView index(@RequestParam("searchView")Optional<String> search,@PageableDefault(value = 5) Pageable pageable)
+    public ModelAndView index(@RequestParam("searchView")Optional<String> search,
+                              @PageableDefault(value = 5) Pageable pageable,
+                              @SessionAttribute("login")Login login) throws Exception
     {
 
         ModelAndView modelAndView = new ModelAndView("note/manage-note");

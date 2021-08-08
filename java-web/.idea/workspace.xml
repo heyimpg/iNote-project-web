@@ -18,9 +18,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Interface" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
         <option value="Class" />
       </list>
     </option>
@@ -43,7 +43,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/Asset/css" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
@@ -55,6 +55,7 @@
       <recent name="D:\TT_Amela\Java-project\du an ca nhan\iNote-project-web\java-web\src\main\java\com\amela" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\TT_Amela\Java-project\du an ca nhan\iNote-project-web\java-web\src\main\webapp\WEB-INF\views\exception_handle" />
       <recent name="D:\TT_Amela\Java-project\du an ca nhan\iNote-project-web\java-web\src\main\webapp\Asset\img" />
       <recent name="D:\TT_Amela\Java-project\du an ca nhan\iNote-project-web\java-web\src\main\webapp\WEB-INF\views" />
       <recent name="D:\TT_Amela\Java-project\du an ca nhan\iNote-project-web\java-web\src\main\webapp\WEB-INF\views\note" />
@@ -168,42 +169,13 @@
       <workItem from="1628125605833" duration="16699000" />
       <workItem from="1628150572163" duration="10817000" />
       <workItem from="1628214327592" duration="25919000" />
-      <workItem from="1628298927203" duration="3687000" />
+      <workItem from="1628298927203" duration="14283000" />
+      <workItem from="1628327713406" duration="10245000" />
+      <workItem from="1628387874225" duration="3457000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/amela/Controllers/LoginController.java</url>
-          <line>70</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/amela/Controllers/LoginController.java</url>
-          <line>67</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/amela/Controllers/LoginController.java</url>
-          <line>72</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/amela/Controllers/LoginController.java</url>
-          <line>77</line>
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/amela/Controllers/LoginController.java</url>
-          <line>71</line>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

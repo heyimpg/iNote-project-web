@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+
+    <!-- BootStrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+    <!-- Css -->
+    <link rel="stylesheet" href="/Asset/css/homeStyle.css">
+
+    <title>iNote Online</title>
+    <link rel="shortcut icon" href="/Asset/img/logo_mini.ico" type="image/x-icon" />
+</head>
+<body>
+
+<!-- Header -->
+<div th:replace="~{layout :: nav}"></div>
+
+<!--Main Content-->
+<div class="container mainhome">
+    <div class>
+        <!-- Left -->
+        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+            <div class="alert alert-info">
+                <strong>Xin lỗi!</strong> Hiện tính năng này chúng tôi đang hoàn thiện ...
+
+            </div>
+        </div>
+        <!-- Right -->
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+            <div class="col-md-12 right_col">
+                <h3>Thông tin liên hệ NPT</h3> (* Email: <i>tomodachy2000@gmail.com</i>)
+                <div class="clearfix"></div>
+                <br>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<div th:replace="~{layout :: footer}"></div>
+
+</body>
+</html>

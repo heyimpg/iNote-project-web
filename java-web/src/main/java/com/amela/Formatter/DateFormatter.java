@@ -24,12 +24,12 @@ public class DateFormatter implements Formatter<LocalDate> {
             DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(regex);
             LocalDate localDate  = LocalDate.parse(text, dateTimeFormatter);
             if (localDate.getYear()<2000)
-                throw new IllegalArgumentException("Chỉ cho phép lưu sau năm 2000");
+                throw new IllegalArgumentException("Chi cho phep luu tu nam 2000");
             return localDate;
         }
         catch (DateTimeException e)
         {
-            throw new IllegalArgumentException("Vui lòng nhập đúng định dạng yyyy-MM-dd");
+            throw new IllegalArgumentException("Vui long nhap dung dinh dang yyyy-MM-dd");
         }
 
     }
