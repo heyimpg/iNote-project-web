@@ -22,11 +22,12 @@ public class Login {
     @UniqueAccount(message = "Tai khoan da ton tai!")
     private String email;
 
-    @Size(min = 6, max = 20, message = "Mat khau tu 6-20 ky tu")
+//    @Pattern(regexp = "[A-Za-z\\d@$!%*#?&^_-]{6,20}$", message = "Mat khau khong ho tro co dau va dau cach")
+    @Size(min = 6, message = "Mat khau phai tren 6 ky tu")
     private String password;
 
     @NotEmpty(message = "Khong duoc de trong truong nay")
-//    @Pattern(regexp = "([a-zA-Z\\s])+", message = "Bạn chỉ được nhập chữ")
+    @Pattern(regexp = "([^0-9])+", message = "Ban chi duoc nhap chu")
     @Size(min = 1, max = 10, message = "Ten cho phep chua toi da 10 ky tu")
     private String name;
 

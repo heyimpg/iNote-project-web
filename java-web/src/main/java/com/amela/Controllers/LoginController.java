@@ -4,6 +4,7 @@ import com.amela.Models.Login;
 import com.amela.Models.Login_Clone;
 import com.amela.Service.ILoginService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +21,9 @@ import java.util.List;
 public class LoginController {
     @Autowired
     private ILoginService loginService;
+
+    @Autowired
+    PasswordEncoder passwordEncoder;
 
     @ModelAttribute("login")
     public Login initLogin()
@@ -38,7 +42,6 @@ public class LoginController {
     {
         //Check account
         ModelAndView modelAndView = new ModelAndView("login/index");
-        login.toString();
         List<Login> loginList = loginService.findAll();
         Login find_account = loginList.stream().filter(p->p.getEmail().equals(login.getEmail())).findFirst().orElse(null);
         if ( find_account == null)
@@ -46,7 +49,7 @@ public class LoginController {
             modelAndView.addObject("invalid_account", "Ten tai khoan khong ton tai!");
             return modelAndView;
         }
-        if (!find_account.getPassword().equals(login.getPassword()))
+        if(!passwordEncoder.matches(login.getPassword(), find_account.getPassword()))
         {
             modelAndView.addObject("invalid_account", "Sai, vui long kiem tra lai mat khau!");
             return modelAndView;
@@ -75,6 +78,7 @@ public class LoginController {
             return modelAndView;
         if (login.getPassword().equals(password_confirm))
         {
+            login.setPassword(passwordEncoder.encode(login.getPassword()));
             loginService.save(login);
             redirectAttributes.addFlashAttribute("message", "Dang ky thanh cong tai khoan "+ login.getEmail());
             modelAndView.setViewName("redirect:/login");
@@ -123,6 +127,7 @@ public class LoginController {
         if (login_clone.getPassword().equals(password_confirm))
         {
             Login login = convertCloneToLogin(login_clone);
+            login.setPassword(passwordEncoder.encode(login.getPassword()));
             loginService.save(login);
             modelAndView.addObject("message", "Da thay doi thong tin cho tai khoan "+ login.getEmail());
 

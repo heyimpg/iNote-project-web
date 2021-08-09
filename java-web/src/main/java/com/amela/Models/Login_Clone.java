@@ -17,10 +17,11 @@ public class Login_Clone {
 
     private String email;
 
-    @Size(min = 6, max = 20, message = "Mat khau tu 6-20 ky tu")
+    @Size(min = 6, message = "Mat khau phai tren 6 ky tu")
     private String password;
 
     @NotEmpty(message = "Khong duoc de trong truong nay")
+    @Pattern(regexp = "([^0-9])+", message = "Ban chi duoc nhap chu")
     @Size(min = 1, max = 10, message = "Ten cho phep chua toi da 10 ky tu")
     private String name;
 

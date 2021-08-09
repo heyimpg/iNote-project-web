@@ -247,10 +247,10 @@
     </configuration>
     <list>
       <item itemvalue="Gradle.Test" />
-      <item itemvalue="Tomcat Server.Tomcat 9.0.50" />
       <item itemvalue="Gradle.DummyTest" />
       <item itemvalue="Gradle.NoteControllerTest" />
       <item itemvalue="Gradle.NoteControllerTest.noteListPageIsExists" />
+      <item itemvalue="Tomcat Server.Tomcat 9.0.50" />
     </list>
     <recent_temporary>
       <list>
@@ -278,6 +278,9 @@
       <workItem from="1628298927203" duration="14283000" />
       <workItem from="1628327713406" duration="10245000" />
       <workItem from="1628387874225" duration="7154000" />
+      <workItem from="1628427162691" duration="4219000" />
+      <workItem from="1628470479570" duration="4727000" />
+      <workItem from="1628475534364" duration="1517000" />
     </task>
     <servers />
   </component>
